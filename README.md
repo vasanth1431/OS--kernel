@@ -72,6 +72,16 @@ MicroOS/
 │   ├── linker.ld                # Kernel linker script
 │   ├── Makefile                 # Kernel build automation
 │   └── README.md                # Kernel architecture explanation
+├── submissions/                 # Continuous Assessment submissions (CA-2, CA-3, CA-5 & Lab Record)
+│   ├── CA2_Performance_Investigation_25BTRCL270.pdf      # CA-2 Submission PDF (18 Pages)
+│   ├── CA3_Design_and_Debugging_Challenge_25BTRCL270.pdf # CA-3 Submission PDF (8 Pages)
+│   ├── CA5_Linux_Systems_Engineering_25BTRCL270.pdf      # CA-5 Submission PDF (11 Pages)
+│   ├── OS_Lab_Record_Vasanth_25BTRCL270.pdf              # OS Laboratory Record PDF (7 Pages)
+│   ├── OS_LAB_RECORD.md                                  # Complete Lab Experiments & Terminal Logs (Markdown)
+│   ├── ca2_sched_exp.py                                  # CA-2 Python Benchmark Script
+│   ├── ca3_multicore_scheduler_debug.py                  # CA-3 Defect Diagnosis & Repair Script
+│   ├── ca5_multicore_scheduling.py                       # CA-5 Linux Systems Engineering Script
+│   └── README.md                                         # Submissions Index & Evaluation Guide
 └── docs/                        # Complete 18-chapter engineering documentation suite
     ├── PROJECT_OVERVIEW.md
     ├── ARCHITECTURE.md
