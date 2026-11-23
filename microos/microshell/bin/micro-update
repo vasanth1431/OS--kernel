@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# micro-update: Perform appropriate package update checks
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_GREEN='\033[38;5;76m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}                     MICROOS PACKAGE UPDATE CHECKER                     ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "${C_AMBER}[INFO] Refreshing local package lists (requires sudo privileges for network refresh)...${C_RESET}"
+    if sudo -n true 2>/dev/null; then
+        sudo apt update || true
+    else
+        echo "Tip: Run 'sudo micro-update' or enter sudo password when prompted."
+        sudo apt update || true
+    fi
+else
+    apt update || true
+fi
+
+echo
+echo -e "${C_AMBER}[Upgradable Packages]${C_RESET}"
+UPGRADE_COUNT=$(apt list --upgradable 2>/dev/null | grep -c "upgradable from" || true)
+if [ "$UPGRADE_COUNT" -gt 0 ]; then
+    echo -e "${C_AMBER}${UPGRADE_COUNT} package(s) can be upgraded.${C_RESET}"
+    echo "To upgrade installed packages, execute: sudo apt upgrade -y"
+else
+    echo -e "${C_GREEN}System is completely up to date. No package updates pending.${C_RESET}"
+fi
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"

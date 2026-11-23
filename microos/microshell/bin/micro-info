@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# micro-info: Display MicroOS version, Linux kernel, architecture and hostname
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}            MICROOS v1.0 SYSTEM INFORMATION           ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"
+echo -e " ${C_AMBER}Distribution:${C_RESET}     MicroOS 1.0 (Beyond the Ordinary Desktop)"
+echo -e " ${C_AMBER}Base System:${C_RESET}      Ubuntu 24.04 LTS (Noble Numbat)"
+echo -e " ${C_AMBER}Developer:${C_RESET}        Tadigotla Vasanth Diwakar (USN: 25BTRCL270)"
+echo -e " ${C_AMBER}Hostname:${C_RESET}         $(hostname)"
+echo -e " ${C_AMBER}Kernel:${C_RESET}           $(uname -r)"
+echo -e " ${C_AMBER}Architecture:${C_RESET}     $(uname -m)"
+if [ -f /proc/cpuinfo ]; then
+    CPU_MODEL=$(grep -m1 "model name" /proc/cpuinfo | awk -F: '{print $2}' | sed 's/^[ \t]*//')
+    CPU_CORES=$(grep -c "^processor" /proc/cpuinfo)
+    echo -e " ${C_AMBER}CPU:${C_RESET}              ${CPU_MODEL} (${CPU_CORES} logical cores)"
+fi
+echo -e " ${C_AMBER}Uptime:${C_RESET}           $(uptime -p 2>/dev/null || uptime)"
+echo -e " ${C_AMBER}Desktop Env:${C_RESET}      XFCE 4.18 (MicroOS Asymmetric Engineering Layout)"
+echo -e " ${C_AMBER}Display Mgr:${C_RESET}      LightDM (Custom Graphite-Teal Greeter)"
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"

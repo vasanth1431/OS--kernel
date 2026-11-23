@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# micro-process: Display actual running processes
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}                     MICROOS ACTIVE PROCESS MONITOR                     ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e " Total Running Processes: $(ps -e --no-headers | wc -l)"
+echo
+echo -e "${C_AMBER}Top 15 Processes by CPU & Memory Utilization:${C_RESET}"
+echo -e "${C_BOLD}  PID   USER       %CPU  %MEM  VSZ(MB)  RSS(MB)  STAT  COMMAND${C_RESET}"
+ps -eo pid,user,%cpu,%mem,vsz,rss,stat,comm --sort=-%cpu | head -n 16 | awk 'NR>1 {printf "  %-5s %-10s %-5s %-5s %-8d %-8d %-5s %s\n", $1, $2, $3, $4, int($5/1024), int($6/1024), $7, $8}'
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"

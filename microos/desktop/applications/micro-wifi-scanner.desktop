@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Wi-Fi Scanner
+Comment=Real-Time Wireless Hardware & SSID Discovery Scanner
+Exec=/usr/local/bin/micro-wifi-scanner
+Icon=network-wireless
+Categories=Network;System;
+Terminal=false
+StartupNotify=true

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MicroOS Engineering Portal</title>
+  <style>
+    :root {
+      --bg: #14171a;
+      --card: #1e2227;
+      --teal: #00b4d8;
+      --amber: #ffb703;
+      --green: #2ec4b6;
+      --text: #e0e6ed;
+      --muted: #8892b0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo-title {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: var(--teal);
+    }
+    .logo-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 6px;
+      letter-spacing: 2px;
+    }
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    .search-box form {
+      display: flex;
+    }
+    .search-input {
+      flex: 1;
+      padding: 14px 20px;
+      font-size: 1rem;
+      background: var(--card);
+      border: 1px solid #30363d;
+      border-radius: 6px 0 0 6px;
+      color: #fff;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--teal); }
+    .search-btn {
+      padding: 14px 24px;
+      background: var(--teal);
+      color: #000;
+      border: none;
+      font-weight: bold;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid #282c34;
+      border-radius: 6px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--teal);
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    footer {
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: #484f58;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <h1 class="logo-title">MICROOS</h1>
+    <p class="logo-sub">MODULAR LINUX ENGINEERING & RESEARCH PORTAL</p>
+  </div>
+
+  <div class="search-box">
+    <form action="https://duckduckgo.com/" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="Search the web or type a URL..." autofocus>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </div>
+
+  <div class="cards-grid">
+    <a href="https://kernel.org" class="card" target="_blank">
+      <h3>The Linux Kernel</h3>
+      <p>Source archives, changelogs, and core documentation for Linux kernel releases.</p>
+    </a>
+    <a href="https://packages.ubuntu.com" class="card" target="_blank">
+      <h3>Ubuntu Packages</h3>
+      <p>Comprehensive search for Noble Numbat 24.04 LTS binary packages and dependencies.</p>
+    </a>
+    <a href="https://ieeexplore.ieee.org" class="card" target="_blank">
+      <h3>IEEE Xplore</h3>
+      <p>Digital library for computer science, operating systems, and multicore scheduling research.</p>
+    </a>
+    <a href="https://dl.acm.org" class="card" target="_blank">
+      <h3>ACM Digital Library</h3>
+      <p>Peer-reviewed literature including EuroSys, SOSP, and ASPLOS conference proceedings.</p>
+    </a>
+  </div>
+
+  <footer>
+    MicroOS v1.0 • Developer: Tadigotla Vasanth Diwakar (USN: 25BTRCL270) • Jain University FET
+  </footer>
+</body>
+</html>

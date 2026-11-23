@@ -1,0 +1,12 @@
+[package]
+name = "cpu_kernel"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tadigotla Vasanth Diwakar <25BTRCL270>"]
+
+[lib]
+name = "cpu_kernel"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.21", features = ["extension-module"] }

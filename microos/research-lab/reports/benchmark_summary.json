@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "author": "Tadigotla Vasanth Diwakar",
+    "usn": "25BTRCL270",
+    "backend": "python",
+    "timestamp": "2026-11-22 18:30:06"
+  },
+  "table1_affinity": {
+    "none": {
+      "avg_execution_time_s": 4.3002,
+      "avg_throughput_tasks_s": 470.24,
+      "avg_load_imbalance": 1.004,
+      "speedup": 3.02
+    },
+    "spread": {
+      "avg_execution_time_s": 4.1056,
+      "avg_throughput_tasks_s": 489.09,
+      "avg_load_imbalance": 1.004,
+      "speedup": 3.17
+    },
+    "single": {
+      "avg_execution_time_s": 4.0526,
+      "avg_throughput_tasks_s": 496.63,
+      "avg_load_imbalance": 1.003,
+      "speedup": 3.21
+    }
+  },
+  "table2_distribution": {
+    "block": {
+      "avg_execution_time_s": 8.2561,
+      "avg_throughput_tasks_s": 242.58,
+      "avg_load_imbalance": 2.254,
+      "speedup": 1.57
+    },
+    "rr": {
+      "avg_execution_time_s": 4.1085,
+      "avg_throughput_tasks_s": 487.41,
+      "avg_load_imbalance": 1.015,
+      "speedup": 3.16
+    },
+    "dynamic": {
+      "avg_execution_time_s": 4.171,
+      "avg_throughput_tasks_s": 480.64,
+      "avg_load_imbalance": 1.004,
+      "speedup": 3.12
+    }
+  },
+  "table3_workers": {
+    "1": {
+      "avg_execution_time_s": 12.9973,
+      "avg_throughput_tasks_s": 153.98,
+      "avg_load_imbalance": 1.0,
+      "speedup": 1.0
+    },
+    "2": {
+      "avg_execution_time_s": 7.0236,
+      "avg_throughput_tasks_s": 284.91,
+      "avg_load_imbalance": 1.001,
+      "speedup": 1.85
+    },
+    "4": {
+      "avg_execution_time_s": 4.0775,
+      "avg_throughput_tasks_s": 492.07,
+      "avg_load_imbalance": 1.004,
+      "speedup": 3.19
+    },
+    "8": {
+      "avg_execution_time_s": 3.2664,
+      "avg_throughput_tasks_s": 617.85,
+      "avg_load_imbalance": 1.01,
+      "speedup": 3.98
+    }
+  }
+}

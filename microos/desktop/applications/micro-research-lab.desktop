@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Research Lab
+Comment=Multi-Core Processor Affinity & Workload Distribution Benchmark Suite
+Exec=/usr/local/bin/micro-research-lab
+Icon=applications-science
+Categories=Development;Science;Education;
+Terminal=false
+StartupNotify=true

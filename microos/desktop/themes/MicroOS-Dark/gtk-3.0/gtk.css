@@ -1,0 +1,70 @@
+/*
+ * MicroOS-Dark GTK3 Theme
+ * Visual Identity: Deep Graphite (#14171a), Charcoal (#1e2227), Electric Teal (#00b4d8), Amber (#ffb703)
+ * Developer: Tadigotla Vasanth Diwakar (USN: 25BTRCL270)
+ */
+
+@define-color bg_color #14171a;
+@define-color base_color #1e2227;
+@define-color text_color #e0e6ed;
+@define-color selected_bg_color #00b4d8;
+@define-color selected_fg_color #000000;
+@define-color tooltip_bg_color #1e2227;
+@define-color tooltip_fg_color #e0e6ed;
+
+window {
+    background-color: @bg_color;
+    color: @text_color;
+}
+
+headerbar {
+    background-color: #1a1d21;
+    border-bottom: 1px solid #282c34;
+}
+
+button {
+    background-color: #21262d;
+    color: #e0e6ed;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+button:hover {
+    background-color: #30363d;
+    border-color: #00b4d8;
+}
+
+button:active, button:checked {
+    background-color: #00b4d8;
+    color: #000000;
+}
+
+entry {
+    background-color: #161b22;
+    color: #e0e6ed;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+entry:focus {
+    border-color: #00b4d8;
+}
+
+/* XFCE Panel Custom Styling */
+.xfce4-panel {
+    background-color: rgba(20, 23, 26, 0.95);
+    border: 1px solid #282c34;
+}
+
+.xfce4-panel button {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+.xfce4-panel button:hover {
+    background-color: rgba(0, 180, 216, 0.2);
+    border-left: 3px solid #00b4d8;
+}

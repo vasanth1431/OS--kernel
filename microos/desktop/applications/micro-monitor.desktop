@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Monitor
+Comment=Real-Time System Hardware & Process Telemetry
+Exec=/usr/local/bin/micro-monitor
+Icon=utilities-system-monitor
+Categories=System;Monitor;
+Terminal=false
+StartupNotify=true

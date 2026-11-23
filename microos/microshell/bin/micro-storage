@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# micro-storage: Display available storage
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}                     MICROOS STORAGE & BLOCK DEVICES                    ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+
+if command -v lsblk &>/dev/null; then
+    echo -e "${C_AMBER}[Block Devices (lsblk)]${C_RESET}"
+    lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT || true
+    echo
+fi
+
+echo -e "${C_AMBER}[Mounted Filesystems & Free Space (df -h)]${C_RESET}"
+df -h -x tmpfs -x devtmpfs -x squashfs 2>/dev/null || df -h
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"

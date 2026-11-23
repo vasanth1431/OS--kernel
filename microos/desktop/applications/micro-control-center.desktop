@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Control Center
+Comment=System Hardware, Display, Network & Desktop Settings
+Exec=/usr/local/bin/micro-control-center
+Icon=preferences-system
+Categories=Settings;System;
+Terminal=false
+StartupNotify=true

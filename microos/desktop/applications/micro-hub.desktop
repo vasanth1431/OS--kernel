@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Hub
+Comment=Original Asymmetric Application Launcher & Engineering Workspace
+Exec=/usr/local/bin/micro-hub
+Icon=applications-other
+Categories=Utility;System;Development;
+Terminal=false
+StartupNotify=true

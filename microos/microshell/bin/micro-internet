@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# micro-internet: Test gateway connectivity, DNS resolution and internet access
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_GREEN='\033[38;5;76m'
+C_RED='\033[38;5;196m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}            MICROOS INTERNET CONNECTIVITY CHECK       ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"
+
+FAILURES=0
+
+# Step 1: Gateway Reachability
+GATEWAY=$(ip route show default 2>/dev/null | awk '{print $3}' | head -n1 || true)
+if [ -n "$GATEWAY" ]; then
+    echo -n " [1/3] Testing Gateway Ping ($GATEWAY)... "
+    if ping -c 1 -W 2 "$GATEWAY" &>/dev/null; then
+        echo -e "${C_GREEN}[PASS] Gateway reachable${C_RESET}"
+    else
+        echo -e "${C_RED}[FAIL] Gateway unreachable${C_RESET}"
+        FAILURES=$((FAILURES + 1))
+    fi
+else
+    echo -e " [1/3] Testing Gateway... ${C_RED}[FAIL] No default gateway configured${C_RESET}"
+    FAILURES=$((FAILURES + 1))
+fi
+
+# Step 2: External IP Reachability (Cloudflare 1.1.1.1)
+echo -n " [2/3] Testing Direct IP Connectivity (1.1.1.1)... "
+if ping -c 1 -W 2 1.1.1.1 &>/dev/null; then
+    echo -e "${C_GREEN}[PASS] Remote IP reachable${C_RESET}"
+else
+    echo -e "${C_RED}[FAIL] Cannot reach remote IP${C_RESET}"
+    FAILURES=$((FAILURES + 1))
+fi
+
+# Step 3: DNS Name Resolution & HTTPS Access
+echo -n " [3/3] Testing DNS Resolution & Web (example.com)... "
+if command -v curl &>/dev/null; then
+    if curl -s -I --connect-timeout 3 https://example.com &>/dev/null; then
+        echo -e "${C_GREEN}[PASS] DNS and HTTPS functional${C_RESET}"
+    else
+        echo -e "${C_RED}[FAIL] Cannot resolve/connect to example.com${C_RESET}"
+        FAILURES=$((FAILURES + 1))
+    fi
+elif getent hosts example.com &>/dev/null; then
+    echo -e "${C_GREEN}[PASS] DNS resolved successfully${C_RESET}"
+else
+    echo -e "${C_RED}[FAIL] DNS resolution failed${C_RESET}"
+    FAILURES=$((FAILURES + 1))
+fi
+
+echo -e "------------------------------------------------------"
+if [ "$FAILURES" -eq 0 ]; then
+    echo -e "${C_BOLD}${C_GREEN}CONNECTIVITY STATUS: CONNECTED (Full Internet Access)${C_RESET}"
+elif [ "$FAILURES" -eq 1 ] && [ -n "$GATEWAY" ]; then
+    echo -e "${C_BOLD}${C_AMBER}CONNECTIVITY STATUS: LIMITED CONNECTIVITY (DNS or Route Issue)${C_RESET}"
+else
+    echo -e "${C_BOLD}${C_RED}CONNECTIVITY STATUS: DISCONNECTED (Check VirtualBox NAT / Cable)${C_RESET}"
+fi
+echo -e "${C_BOLD}${C_TEAL}======================================================${C_RESET}"

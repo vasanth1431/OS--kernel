@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Process Panic
+Comment=Operating Systems CPU Scheduling & Memory Management Puzzle Game
+Exec=/usr/local/bin/process-panic
+Icon=applications-games
+Categories=Game;LogicGame;Education;
+Terminal=false
+StartupNotify=true

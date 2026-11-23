@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1c2128"/>
+      <stop offset="100%" stop-color="#0f1115"/>
+    </radialGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#fb8500"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#22272e" stroke-width="1" stroke-opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- Geometric Abstract Lines -->
+  <path d="M 0,200 L 400,200 L 600,400 L 1400,400 L 1600,600 L 1920,600" fill="none" stroke="#00b4d8" stroke-width="2" stroke-opacity="0.25"/>
+  <path d="M 0,900 L 300,900 L 500,700 L 1300,700 L 1500,500 L 1920,500" fill="none" stroke="#ffb703" stroke-width="1.5" stroke-opacity="0.2"/>
+
+  <!-- Central Logo Emblem -->
+  <g transform="translate(960, 500)">
+    <!-- Hexagonal Core Shield -->
+    <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60" fill="#14171a" stroke="url(#tealGrad)" stroke-width="4"/>
+    <polygon points="0,-100 86,-50 86,50 0,100 -86,50 -86,-50" fill="none" stroke="#22272e" stroke-width="2"/>
+
+    <!-- MicroOS "M" Monogram -->
+    <path d="M -50,45 L -50,-40 L 0,0 L 50,-40 L 50,45" fill="none" stroke="url(#tealGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Amber Core Accent -->
+    <circle cx="0" cy="22" r="7" fill="url(#amberGrad)"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="960" y="680" font-family="'Segoe UI', 'Ubuntu', 'Roboto', sans-serif" font-size="44" font-weight="900" fill="#e0e6ed" letter-spacing="8" text-anchor="middle">MICROOS</text>
+  <text x="960" y="720" font-family="'Segoe UI', 'Ubuntu', 'Roboto', sans-serif" font-size="14" font-weight="600" fill="#00b4d8" letter-spacing="6" text-anchor="middle">BEYOND THE ORDINARY DESKTOP</text>
+  <text x="960" y="750" font-family="'Segoe UI', 'Ubuntu', 'Roboto', sans-serif" font-size="11" font-weight="400" fill="#8892b0" letter-spacing="2" text-anchor="middle">MODULAR LINUX ENGINEERING &amp; RESEARCH ENVIRONMENT</text>
+
+  <!-- Watermark details -->
+  <text x="1880" y="1050" font-family="sans-serif" font-size="11" fill="#484f58" text-anchor="end">Jain University FET | USN: 25BTRCL270</text>
+</svg>

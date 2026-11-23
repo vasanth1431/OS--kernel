@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# micro-help: Display available MicroOS commands
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}                 MICROOS COMMAND MANUAL & REFERENCE                     ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e " MicroOS provides custom CLI utilities alongside standard Bash commands:"
+echo
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-info" "Display kernel, architecture, hardware & OS specs"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-status" "Real-time CPU load, memory utilization, uptime & disk"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-health" "Resource threshold monitoring & health warnings"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-network" "Active interfaces, link status & default gateways"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-wifi" "Wireless hardware check & nearby Wi-Fi network scanner"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-ip" "Display local IPv4/IPv6, subnets & public IP address"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-internet" "Run 3-tier gateway, DNS & HTTPS internet diagnostics"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-process" "Process monitor ranked by CPU and RAM utilization"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-storage" "Inspect block devices (lsblk) and disk partitions (df)"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-apps" "Catalog of MicroOS applications & developer toolchain"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-update" "Check APT package cache for distribution updates"
+printf "  ${C_AMBER}%-16s${C_RESET} %s\n" "micro-help" "Show this command manual and operational hints"
+
+echo
+echo -e "${C_BOLD}Tip:${C_RESET} All standard Linux tools (grep, find, curl, top, htop, ip, nmcli) are"
+echo -e "fully functional. Run any MicroOS command with standard pipes (e.g. 'micro-status | grep RAM')."
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"

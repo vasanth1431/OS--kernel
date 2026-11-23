@@ -1,0 +1,58 @@
+# MicroShell Configuration for MicroOS v1.0
+# Developer: Tadigotla Vasanth Diwakar (USN: 25BTRCL270)
+
+# Colors
+export C_RESET='\[\033[0m\]'
+export C_BOLD='\[\033[1m\]'
+export C_TEAL='\[\033[38;5;39m\]'
+export C_GRAPHITE='\[\033[38;5;240m\]'
+export C_AMBER='\[\033[38;5;214m\]'
+export C_GREEN='\[\033[38;5;76m\]'
+export C_RED='\[\033[38;5;196m\]'
+export C_WHITE='\[\033[38;5;255m\]'
+
+# Git branch parser for prompt
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# Prompt appearance: user@microos:~/projects$ [git_branch]
+PS1="${C_BOLD}${C_TEAL}\u@microos${C_RESET}:${C_AMBER}\w${C_GREEN}\$(parse_git_branch)${C_RESET}${C_TEAL}\$ ${C_RESET}"
+
+# Standard Aliases
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias grep='grep --color=auto'
+alias df='df -h'
+alias free='free -h'
+
+# MicroOS Aliases
+alias info='micro-info'
+alias status='micro-status'
+alias health='micro-health'
+alias net='micro-network'
+alias wifi='micro-wifi'
+alias myip='micro-ip'
+alias internet='micro-internet'
+alias ps-micro='micro-process'
+alias storage='micro-storage'
+alias apps='micro-apps'
+alias update='micro-update'
+alias help-micro='micro-help'
+
+# MicroShell Welcome Banner
+if [[ -o interactive ]]; then
+    echo -e "${C_BOLD}${C_TEAL}======================================================================"
+    echo -e "       __  __ _               ____  _          _ _ "
+    echo -e "      |  \/  (_) ___ _ __ ___/ ___|| |__   ___| | |"
+    echo -e "      | |\/| | |/ __| '__/ _ \___ \| '_ \ / _ \ | |"
+    echo -e "      | |  | | | (__| | | (_) |__) | | | |  __/ | |"
+    echo -e "      |_|  |_|_|\___|_|  \___/____/|_| |_|\___|_|_|"
+    echo -e "                 MicroOS v1.0 - Interactive Shell"
+    echo -e "      Developer: Tadigotla Vasanth Diwakar (USN: 25BTRCL270)"
+    echo -e "======================================================================${C_RESET}"
+    echo -e " Type '${C_AMBER}micro-help${C_RESET}' to view original MicroOS diagnostic commands."
+    echo -e " Type '${C_AMBER}micro-status${C_RESET}' for real-time telemetry."
+    echo
+fi

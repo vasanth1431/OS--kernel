@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Micro Network Center
+Comment=Network Telemetry, Routing & Bandwidth Monitor
+Exec=/usr/local/bin/micro-network-center
+Icon=network-workgroup
+Categories=Network;System;
+Terminal=false
+StartupNotify=true

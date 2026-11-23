@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# micro-apps: List installed applications
+set -euo pipefail
+
+C_TEAL='\033[38;5;39m'
+C_AMBER='\033[38;5;214m'
+C_GREEN='\033[38;5;76m'
+C_BOLD='\033[1m'
+C_RESET='\033[0m'
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}                     MICROOS APPLICATION DIRECTORY                      ${C_RESET}"
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
+
+echo -e "${C_AMBER}[Original MicroOS Engineering Suite]${C_RESET}"
+printf "  %-24s %s\n" "Micro Hub" "Asymmetric modular application launcher"
+printf "  %-24s %s\n" "Micro Monitor" "Live /proc real-time CPU/RAM/Network system telemetry"
+printf "  %-24s %s\n" "Micro Control Center" "Comprehensive 10-panel OS settings manager"
+printf "  %-24s %s\n" "Micro Network Center" "Hardware adapter & connection manager"
+printf "  %-24s %s\n" "Micro Wi-Fi Scanner" "Real-time wireless network scanner & authenticator"
+printf "  %-24s %s\n" "Micro Research Lab" "Multi-Core Scheduling benchmark & analysis engine"
+printf "  %-24s %s\n" "Process Panic" "Original OS CPU & memory scheduling puzzle game"
+printf "  %-24s %s\n" "Kernel Lab" "Educational freestanding x86 bare-metal kernel"
+
+echo
+echo -e "${C_AMBER}[Standard Preinstalled Tools]${C_RESET}"
+for tool in firefox thunar xfce4-terminal git python3 gcc make htop nmcli; do
+    if command -v "$tool" &>/dev/null; then
+        echo -e "  [${C_GREEN}INSTALLED${C_RESET}] $tool"
+    else
+        echo -e "  [${C_TEAL}PENDING  ${C_RESET}] $tool"
+    fi
+done
+
+echo -e "${C_BOLD}${C_TEAL}========================================================================${C_RESET}"
